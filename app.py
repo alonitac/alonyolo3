@@ -1,5 +1,4 @@
-from fastapi import FastAPI, UploadFile, File, HTTPException, Request
-from fastapi.responses import FileResponse, Response
+from fastapi import FastAPI, UploadFile, File, HTTPException
 from ultralytics import YOLO
 from PIL import Image
 import os
