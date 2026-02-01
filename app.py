@@ -61,6 +61,18 @@ def predict(file: UploadFile = File(...)):
         "labels": detected_labels
     }
 
+@app.get("/prediction/{uid}")
+def get_prediction_by_uid(uid: str):
+    """
+    Get prediction session by uid with all detected objects
+    """
+    result = db.get_prediction_by_uid(uid)
+    if not result:
+        raise HTTPException(status_code=404, detail="Prediction not found")
+    return result
+
+
+
 
 if __name__ == "__main__":
     import uvicorn
